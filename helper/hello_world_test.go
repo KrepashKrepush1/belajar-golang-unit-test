@@ -3,7 +3,9 @@ package helper
 import (
 	"fmt"
 	"testing"
-	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/assert" // library untuk assertion jika gagal test maka test akan dihentikan
+	"github.com/stretchr/testify/require"
+	"runtime"
 )
 
 // func TestHelloWorld(t *testing.T) {
@@ -13,7 +15,7 @@ import (
 // 		//unit test failed
 // 		panic("Result is not Hello diosatu")  // kalo pake panic test nya bakal berenti semua
 // 	}
-	
+
 // }
 
 // kalo mau run per function bisa pake  
@@ -81,9 +83,32 @@ func TestHelloWorld4(t *testing.T) {
 
 
 // function buat testing assertion
-// ini function ke 5
+// ini function ke 5   yg bagian 	"github.com/stretchr/testify/assert"
 func TestHelloWorld5(t *testing.T) {
-	result := HelloWorld5("diosatu coba5")
-	assert.Equal(t, "Hello diosatu coba5", result, "Result harus nya 'Hello diosatu coba5'")
-	fmt.Println("TestHelloWorld5 sukses")
+	result := HelloWorld5assert("diosatu coba5")
+	assert.Equal(t, "Hello diosatu coba5", result, "Result harusnya 'Hello diosatu coba5'") // assertion adalah 
+	// function yang digunakan untuk mengecek apakah test yang kita buat berhasil atau gagal
+
+	fmt.Println("HelloWorld5assert sukses")
 }
+
+// ini function ke 6 
+func TestHelloWorld6(t *testing.T) {
+	result := HelloWorldRequire("diosatu coba5")
+	require.Equal(t, "Hello diosatu coba5", result, "Result harusnya 'Hello diosatu coba5'") // assertion adalah 
+	// function yang digunakan untuk mengecek apakah test yang kita buat berhasil atau gagal
+
+	fmt.Println("TestHelloWorld6 sukses")
+}
+
+func TestSkipDulu(t *testing.T) {
+	if runtime.GOOS == "windows" {
+		t.Skip("Can't run on Windows") // skip test jika OS adalah windows
+	}
+	result := TestSkip1("mana aja")
+	require.Equal(t, "nyoba di OS mana aja", result, "Result harusnya 'nyoba di OS mana aja'") // ini assertion untuk 
+	// mengecek apakah test berhasil atau gagal 
+
+}
+
+
