@@ -73,7 +73,7 @@ func TestHelloWorld3(t *testing.T) {
 func TestHelloWorld4(t *testing.T) {
 	result := HelloWorld4("diosatu coba4")
 
-	if result != "Hello diosatu coba4" { // kalo hasil nya beda dari yang di inginkan maka test akan gagal
+	if result != "Helloo diosatu coba4" { // kalo hasil nya beda dari yang di inginkan maka test akan gagal
 		//unit test failed
 		t.Fatal("Result should be 'Hello diosatu coba4'")
 	}
@@ -86,7 +86,7 @@ func TestHelloWorld4(t *testing.T) {
 // ini function ke 5   yg bagian 	"github.com/stretchr/testify/assert"
 func TestHelloWorld5(t *testing.T) {
 	result := HelloWorld5assert("diosatu coba5")
-	assert.Equal(t, "Hello diosatu coba5", result, "Result harusnya 'Hello diosatu coba5'") // assertion adalah 
+	assert.Equal(t, "Hello diosatu coba5", result, "Result harusnya 'Hello diosatu coba5") // assertion adalah 
 	// function yang digunakan untuk mengecek apakah test yang kita buat berhasil atau gagal
 
 	fmt.Println("HelloWorld5assert sukses")
@@ -94,8 +94,8 @@ func TestHelloWorld5(t *testing.T) {
 
 // ini function ke 6 
 func TestHelloWorld6(t *testing.T) {
-	result := HelloWorldRequire("diosatu coba5")
-	require.Equal(t, "Hello diosatu coba5", result, "Result harusnya 'Hello diosatu coba5'") // assertion adalah 
+	result := HelloWorld6Require("diosatu coba6")
+	require.Equal(t, "Hello diosatu coba6", result, "Result harusnya 'Hello diosatu coba6") // assertion adalah 
 	// function yang digunakan untuk mengecek apakah test yang kita buat berhasil atau gagal
 
 	fmt.Println("TestHelloWorld6 sukses")
